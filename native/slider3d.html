@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .slider-3d {
+      position: relative;
+      width: 1000px;
+      height: 500px;
+      margin: 100px auto;
+    }
+
+    img {
+      display: block;
+      width: 100%;
+    }
+
+    .slider-item {
+      position: absolute;
+      box-shadow: 10px 20px 10px #666;
+      transition: all .6s cubic-bezier(0.215, 0.610, 0.355, 1);
+    }
+
+    .slider-item.first {
+      /* top: 80px;
+      left: 200px; */
+      z-index: 3;
+      width: 600px;
+      transform: translate3d(200px, 80px, 0);
+    }
+
+    .slider-item.third {
+      /* left: 350px;
+      top: 50px; */
+      z-index: 1;
+      width: 300px;
+      opacity: .4;
+      transform: translate3d(350px, 50px, 0);
+    }
+
+    .slider-item.second {
+      /* top: 138px; */
+      z-index: 2;
+      width: 400px;
+      opacity: .6;
+    }
+
+    .slider-item.second.left {
+      /* left: 0; */
+      transform: translate3d(0, 138px, 0);
+    }
+
+    .slider-item.second.right {
+      /* left: 600px; */
+      transform: translate3d(600px, 138px, 0);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="container">
+    <div class="slider-3d">
+      <div class="slider-item first">
+        <a href="">
+          <img src="img/1.jpeg" alt="">
+        </a>
+      </div>
+      <div class="slider-item second right">
+        <a href="">
+          <img src="img/2.jpeg" alt="">
+        </a>
+      </div>
+      <div class="slider-item third">
+        <a href="">
+          <img src="img/3.jpeg" alt="">
+        </a>
+      </div>
+      <div class="slider-item second left">
+        <a href="">
+          <img src="img/4.jpeg" alt="">
+        </a>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const oSliderItems = document.querySelectorAll('.slider-item'),
+      classNames = [];
+
+    let t = null;
+
+    const init = () => {
+      collectClassNames();
+      sliderAction();
+    }
+
+    function render() {
+      let oSliderItem = null;
+
+      for (let i = 0; i < oSliderItems.length; i++) {
+        oSliderItem = oSliderItems[i];
+        oSliderItem.className = classNames[i];
+      }
+    }
+
+    function collectClassNames() {
+      let oSliderItem = null;
+
+      for (let i = 0; i < oSliderItems.length; i++) {
+        oSliderItem = oSliderItems[i];
+        classNames.push(oSliderItem.className);
+      }
+    }
+
+    function setClassNames() {
+      classNames.unshift(classNames.pop());
+      render();
+    }
+
+    function sliderAction() {
+      t = setInterval(setClassNames, 3000);
+    }
+
+    init();
+  </script>
+</body>
+
+</html>
