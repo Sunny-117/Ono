@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css" />
+  <link rel="stylesheet" href="css/common.css">
+  <link rel="stylesheet" href="css/index.css">
+</head>
+
+<body>
+   <div class="wrapper">
+    <div class="header">
+      <div class="select">请选择</div>
+      <div class="icon">
+        <i class="fa fa-caret-down"></i>
+      </div>
+    </div>
+
+    <div class="option">
+      <div class="inputWrap">
+        <input type="text" id="search" placeholder="请输入关键字">
+        <label for="search" class="fa fa-search"></label>
+      </div>
+      <ul class="option-list">
+        <!-- <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li>
+        <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li>
+        <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li>
+        <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li>
+        <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li>
+        <li class="option-item">
+          <a href="javascript:;">html5</a>
+        </li> -->
+      </ul>
+    </div>
+   
+   </div>
+
+  <script type="text/javascript" src="js/data.js"></script>
+  <script type="text/javascript" src="js/index.js"></script>
+  <script type="text/html" id="js_data">
+    <li class="option-item" data-option={{option}}>
+      <a href="javascript:;">{{optionText}}</a>
+    </li>
+  </script>
+  <script type="text/javascript">
+    new Select({
+      wrapper: 'wrapper',
+      header: 'header',
+      option: 'option',
+      tpl: 'js_data'
+    }).init();
+  </script>
+</body>
+
+</html>

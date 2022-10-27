@@ -1,0 +1,89 @@
+.wrapper {
+  position: relative;
+  width: 250px;
+  height: 40px;
+  box-shadow: 0 0 3px #000;
+  border-radius: 3px;
+  margin: 200px auto;
+}
+
+.header {
+  width: 100%;
+  height: 100%;
+}
+
+.header .select {
+  float: left;
+  width: 210px;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.header .icon {
+  float: right;
+  width: 40px;
+  height: 100%;
+  text-align: center;
+  line-height: 40px;
+}
+
+.option {
+  display: none;
+  opacity: 0;
+  position: absolute;
+  left: 0;
+  top: 50px;
+  width: 100%;
+  border-radius: 8px;
+  box-shadow: 0 0 8px #ccc;
+  transition: all .3s linear;
+}
+
+.option .inputWrap {
+  position: relative;
+  width: 250px;
+  height: 40px;
+  padding: 5px 10px;
+  box-sizing: border-box;
+}
+
+.inputWrap input[type="text"] {
+  width: 100%;
+  height: 100%;
+  border: 1px solid #aaa;
+  text-indent: 25px;
+}
+
+.inputWrap input[type="text"]:focus {
+  border: 1px solid #66afe9;
+  box-shadow: 0 0 8px #66afe9;
+}
+
+.inputWrap label {
+  position: absolute;
+  top: 12px;
+  left: 15px;
+  color: #aaa;
+}
+
+.option-list {
+  width: 100%;
+}
+
+.option-list .option-item {
+  height: 40px;
+  text-align: center;
+  line-height: 40px;
+}
+
+.option-list .option-item:hover {
+  background-color: #eee;
+}
+
+.option-list .option-item a {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #333;
+}
