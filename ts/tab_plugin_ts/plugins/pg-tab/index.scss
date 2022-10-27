@@ -1,0 +1,43 @@
+.pg-tab {
+  width: 500px;
+  height: 500px;
+  border: 1px solid #000;
+
+  .pg-nav {
+    height: 50px;
+    border-bottom: 1px solid #000;
+
+    .nav-item {
+      float: left;
+      line-height: 50px;
+      text-align: center;
+
+      &.current {
+        background-color: #000;
+        color: #fff;
+      }
+    }
+  }
+
+  .pg-page {
+    position: relative;
+    width: 100%;
+    height: 450px;
+
+    .page-item {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      text-align: center;
+      line-height: 450px;
+      font-size: 100px;
+
+      &.current {
+        display: block;
+      }
+    }
+  }
+}
