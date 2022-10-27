@@ -1,0 +1,28 @@
+body {
+	margin: 0;
+}
+
+a {
+	text-decoration: none;
+	color: #333;
+}
+
+img {
+	width: 100%;
+}
+
+h1 {
+	margin: 0;
+	font-weight: normal;
+}
+
+.clearfix::after {
+	content: "";
+	display: block;
+	clear: both;
+}
+
+.container {
+	width: 1200px;
+	margin: 50px auto;
+}
