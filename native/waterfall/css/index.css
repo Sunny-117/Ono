@@ -1,0 +1,35 @@
+p{
+	margin: 0;
+}
+
+.wrap{
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.wf-item{
+	position: absolute;
+	background-color: #ededed;
+	box-shadow: 1px 2px 3px #ccc;
+	overflow: hidden;
+	transition: box-shadow .3s;
+}
+
+.wf-item:hover{
+	box-shadow: 3px 5px 10px #999;
+}
+
+.wf-item img{
+	display: block;
+	width: 100%;
+	opacity: 0;
+	transition: opacity 1s;
+}
+
+.wf-item .title-box{
+	height: 44px;
+	text-align: center;
+	line-height: 44px;
+	background-color: #fff;
+}

@@ -1,0 +1,16 @@
+.wrap{
+	position: relative;
+	width: 1200px;
+	margin: 0 auto;
+}
+
+.wf-item{
+	position: absolute;
+	background-color: #ededed;
+	overflow: hidden;
+}
+
+.wf-item img{
+    display: block;
+	width: 100%;
+}
