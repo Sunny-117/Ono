@@ -1,0 +1,20 @@
+{
+  "name": "ts-plugin",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.ts",
+  "scripts": {
+    "dev": "vite",
+    "build": "vite build"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "rollup-plugin-html": "^0.2.1",
+    "vite": "^1.0.0-rc.9"
+  },
+  "dependencies": {
+    "jquery": "^3.5.1"
+  }
+}

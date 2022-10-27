@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Document</title>
+  <style>
+    .tab {
+      width: 500px;
+      height: 500px;
+      border: 1px solid #000;
+      margin: 0 auto;
+      overflow: hidden;
+    }
+
+    .tab .tab-wrapper {
+      height: 50px;
+      border-bottom: 1px solid #000;
+    }
+
+    .tab .tab-wrapper .tab-item {
+      float: left;
+      width: 25%;
+      height: 100%;
+      text-align: center;
+      line-height: 50px;
+    }
+
+    .tab .tab-wrapper .tab-item.active {
+      background-color: #000;
+      color: #fff;
+    }
+
+    .tab .page-wrapper {
+      position: relative;
+      height: 450px;
+    }
+
+    .tab.fade .page-wrapper .inner {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .tab.slide .page-wrapper .inner {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 2000px;
+      height: 100%;
+      transition: transform .2s;
+    }
+
+    .tab .page-wrapper .page-item {
+      width: 500px;
+      height: 100%;
+      text-align: center;
+      line-height: 450px;
+      font-size: 100px;
+    }
+
+    .tab.fade .page-wrapper .page-item {
+      display: none;
+      position: absolute;
+      top: 0;
+      left: 0;
+    }
+
+    .tab.fade .page-wrapper .page-item.active {
+      display: block;
+    }
+
+    .tab.slide .page-wrapper .inner .page-item {
+      display: block;
+      float: left;
+      width: 500px;
+      height: 100%;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="tab">
+    <div class="tab-wrapper">
+      <div class="tab-item active">选项一</div>
+      <div class="tab-item">选项二</div>
+      <div class="tab-item">选项三</div>
+      <div class="tab-item">选项四</div>
+    </div>
+    <div class="page-wrapper">
+      <div class="inner">
+        <div class="page-item active">页面一</div>
+        <div class="page-item">页面二</div>
+        <div class="page-item">页面三</div>
+        <div class="page-item">页面四</div>
+      </div>
+    </div>
+  </div>
+  <script type="module" src="./src/index.ts"></script>
+</body>
+</html>
