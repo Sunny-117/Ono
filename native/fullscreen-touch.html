@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Document</title>
+  <script>
+    document.documentElement.style.fontSize =
+      document.documentElement.clientWidth / 37.5 + "px";
+  </script>
+  <style>
+    body {
+      margin: 0;
+    }
+
+    html,
+    body,
+    #app {
+      height: 100%;
+    }
+
+    div {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .slide-page {
+      position: relative;
+      height: 100%;
+      overflow: hidden;
+    }
+
+    .scroll-wrapper {
+      position: absolute;
+      width: 150rem;
+      height: 100%;
+      flex-direction: row;
+    }
+
+    .page-item {
+      height: 100%;
+      flex: 1;
+    }
+
+    .page-item .inner {
+      height: 100%;
+      justify-content: center;
+      align-items: center;
+      font-size: 5rem;
+    }
+
+    .page-item:nth-child(1) .inner {
+      background-color: orange;
+    }
+
+    .page-item:nth-child(2) .inner {
+      background-color: red;
+    }
+
+    .page-item:nth-child(3) .inner {
+      background-color: pink;
+    }
+
+    .page-item:nth-child(4) .inner {
+      background-color: purple;
+    }
+  </style>
+</head>
+
+<body>
+  <div id="app">
+    <div class="slide-page">
+      <div class="scroll-wrapper">
+        <div class="page-item">
+          <div class="inner">page-1</div>
+        </div>
+        <div class="page-item">
+          <div class="inner">page-2</div>
+        </div>
+        <div class="page-item">
+          <div class="inner">page-3</div>
+        </div>
+        <div class="page-item">
+          <div class="inner">page-4</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const oSlidePage = document.querySelector(".slide-page"),
+      oPageItems = oSlidePage.querySelectorAll(".page-item"),
+      oScrollWrapper = oSlidePage.querySelector(".scroll-wrapper"),
+      pageWidth = oSlidePage.offsetWidth;
+
+    let startX = 0,
+      disX = 0,
+      isMove = false,
+      pageIndex = 0;
+
+    const init = () => {
+      bindEvent();
+    }
+
+    function bindEvent() {
+      oScrollWrapper.addEventListener('touchstart', handleTouchStart, false);
+      oScrollWrapper.addEventListener('touchmove', handleTouchMove, false);
+      oScrollWrapper.addEventListener('touchend', handleTouchEnd, false);
+    }
+
+    function handleTouchStart(e) {
+      startX = e.touches[0].clientX;
+    }
+
+    function handleTouchMove(e) {
+      const moveX = e.touches[0].clientX;
+
+      if ((moveX > startX && pageIndex === 0) ||
+        (moveX < startX && pageIndex === oPageItems.length - 1)
+      ) {
+        return;
+      }
+
+      disX = moveX - startX;
+      setTranslateX(- pageIndex * pageWidth + disX);
+      isMove = true;
+    }
+
+    function handleTouchEnd(e) {
+      if (isMove) {
+        if (Math.abs(disX) >= pageWidth / 3) {
+          if (disX > 0) {
+            pageIndex--;
+          }
+
+          if (disX < 0) {
+            pageIndex++;
+          }
+        }
+
+        setTranslateX(- pageIndex * pageWidth);
+      }
+
+      startX = 0;
+      disX = 0;
+      isMove = false;
+    }
+
+    function setTranslateX(transX) {
+      oScrollWrapper.style.transition = "all 0.1s";
+      oScrollWrapper.style.transform = "translateX(" + transX + "px)";
+    }
+
+    init();
+
+  </script>
+</body>
+
+</html>
