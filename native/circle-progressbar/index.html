@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .container {
+      width: 300px;
+      height: 300px;
+      margin: 100px auto;
+    }
+
+    .circle-progressbar {
+      position: relative;
+      width: 100%;
+      height: 100%;
+    }
+
+    .circle-progressbar .title {
+      margin: 0;
+      text-align: center;
+      line-height: 300px;
+      font-size: 50px;
+    }
+
+    .circle-progressbar div {
+      box-sizing: border-box;
+    }
+
+    .circle-progressbar .wrapper {
+      position: absolute;
+      top: 0;
+      width: 150px;
+      height: 300px;
+      overflow: hidden;
+    }
+
+    .circle-progressbar .wrapper.left-wrapper {
+      left: 0;
+    }
+
+    .circle-progressbar .wrapper.right-wrapper {
+      right: 0;
+    }
+
+    .circle-progressbar .wrapper .circle-bar {
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      border: 30px solid transparent;
+      border-radius: 50%;
+      transform: rotate(-135deg);
+      transition: transform .3s;
+    }
+
+    .circle-progressbar .left-wrapper .circle-bar {
+      left: 0;
+      border-left-color: orange;
+      border-bottom-color: orange;
+    }
+
+    .circle-progressbar .right-wrapper .circle-bar {
+      right: 0;
+      border-right-color: orange;
+      border-top-color: orange;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="container">
+    <div class="circle-progressbar">
+      <h1 class="title">0%</h1>
+      <div class="wrapper left-wrapper">
+        <div class="circle-bar"></div>
+      </div>
+      <div class="wrapper right-wrapper">
+        <div class="circle-bar"></div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+
+    const circleProgressBar = CircleProgressBar();
+
+    let p = 0;
+
+    let t = setInterval(() => {
+      circleProgressBar(++ p);
+    }, 300);
+    
+    function CircleProgressBar () {
+      
+      const oLeftCircleBar = getCircleBar('left'),
+            oRightCircleBar = getCircleBar('right'),
+            oTitle = document.querySelector('.circle-progressbar .title');
+
+      return function (percent) {
+        if (percent >= 0 && percent <= 50) {
+          setRotate(oRightCircleBar, percent);
+        } else if (percent > 50 && percent <= 100) {
+          setRotate(oLeftCircleBar,  percent - 50);
+        }
+
+        if (percent >= 0 && percent <= 100) {
+          oTitle.innerText = percent + '%';
+        }
+      }
+
+      function formatDegree (percent) {
+        return `rotate(${ -135 + (360 / 100 * percent) }deg)`;
+      }
+
+      function setRotate (node, percent) {
+        node.style.transform = formatDegree(percent);
+      }
+
+      function getCircleBar (dir) {
+        return document.querySelector(`.circle-progressbar .${ dir }-wrapper .circle-bar`);
+      }
+    }
+  </script>
+
+</body>
+</html>
