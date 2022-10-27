@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  
+  <div id="app">
+    <!-- 
+      逻辑 -> 数据 <-> 视图 
+      Vue -> v-model
+     -->
+     <div>
+       <input type="text" v-model="name" placeholder="姓名" />
+       <input type="text" v-model="age" placeholder="年龄" />
+       <input type="text" v-model="email" placeholder="邮箱" />
+       <input type="text" v-model="tel" placeholder="电话号码" />
+     </div>
+     <div>
+       <p>姓名：<span>{{ name }}</span></p>
+       <p>年龄：<span>{{ age }}</span></p>
+       <p>邮箱：<span>{{ email }}</span></p>
+       <p>
+         <p>
+          电话：<span>{{ tel }}</span>
+         </p>
+       </p>
+     </div>
+     <button id="btn">改变名字</button>
+  </div>
+
+  <script src="mvvm.js"></script>
+  
+  <script>
+    const app = new MVVM('#app', {
+      name: '',
+      age: '',
+      email: '',
+      tel: ''
+    }); 
+
+    document.querySelector('#btn').addEventListener('click', function () {
+      app.setData('name', '小野森森');
+    });
+  </script>
+</body>
+</html>
