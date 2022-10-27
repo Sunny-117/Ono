@@ -1,0 +1,15 @@
+{
+  "name": "facade-ts",
+  "version": "1.0.0",
+  "description": "TodoList -> Component",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^1.0.0-rc.9"
+  }
+}

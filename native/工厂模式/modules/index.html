@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    .modal {
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      width: 500px;
+      height: 500px;
+      margin: -250px 0 0 -250px;
+      box-shadow: 1px 3px 5px #999;
+    }
+
+    .modal header {
+      height: 50px;
+      background-color: #ccc;
+      color: #fff;
+      padding: 0 15px;
+      box-sizing: border-box;
+      font-size: 18px;
+      line-height: 50px;
+    }
+
+    .modal.success header {
+      background-color: green;
+    }
+
+    .modal.warning header {
+      background-color: orange;
+    }
+
+    .modal.error header {
+      background-color: red;
+    }
+  </style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="modal">
+      <header>Modal</header>
+    </div>
+    <div class="btn-group">
+      <button data-status="S">成功模态框</button>
+      <button data-status="W">告警模态框</button>
+      <button data-status="E">失败模态框</button>
+    </div>
+  </div>
+  <script type="module" src="http://localhost:3333/factory/index.js"></script>
+</body>
+</html>
