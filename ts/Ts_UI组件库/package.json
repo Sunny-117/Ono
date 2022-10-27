@@ -1,0 +1,19 @@
+{
+  "name": "my-plugin-ts",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "vite": "^1.0.0-rc.9"
+  },
+  "dependencies": {
+    "@types/jquery": "^3.5.4",
+    "jquery": "^3.5.1"
+  }
+}
