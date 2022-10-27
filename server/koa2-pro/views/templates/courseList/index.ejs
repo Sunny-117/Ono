@@ -1,0 +1,7 @@
+<div class="list-wrapper">
+  <ul class="course-list">
+    <% for (var i = 0; i < courseData.length; i ++) { %>
+      <%- include('item.ejs', { item: courseData[i] }) %>
+    <% } %>
+  </ul>
+</div>

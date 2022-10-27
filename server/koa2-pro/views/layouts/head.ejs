@@ -1,0 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="keyword" content="<%= INDEX.HEAD.KEYWORD %>" />
+  <meta name="description" content="<%= INDEX.HEAD.DESCRIPTION %>" />
+  <title><%= INDEX.HEAD.TITLE %></title>
+  <% for (i = 0; i < INDEX.STYLES.length; i ++) { %>
+    <link rel="stylesheet" href="<%= INDEX.STYLES[i] %>" />
+  <% } %>
+</head>
+<body>
