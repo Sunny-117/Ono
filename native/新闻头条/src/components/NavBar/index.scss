@@ -1,0 +1,35 @@
+.nav {
+	position: fixed;
+	top: .44rem;
+	left: 0;
+	z-index: 2;
+	width: 100%;
+	height: .35rem;
+	border-bottom: .01rem solid #ddd;
+	background-color: #fff;
+	overflow: hidden;
+
+	.scroll {
+		height: .42rem;
+		-webkit-overflow-scrolling: touch;
+		overflow-x: auto;
+
+		.nav-wrapper {
+			display: flex;
+			flex-direction: row;
+			height: .35rem;
+
+			.item {
+				display: flex;
+				justify-content: center;
+				align-items: center;
+				width: .6rem;
+				font-size: .16rem;
+
+				&.current {
+					color: #ec7a70;
+				}
+			}
+		}
+	}
+}

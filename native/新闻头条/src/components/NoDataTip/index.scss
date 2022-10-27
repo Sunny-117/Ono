@@ -1,0 +1,19 @@
+.no-data-tip {
+  position: fixed;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  color: #999;
+
+  p {
+    font-size: .14rem;
+    margin-top: .15rem;
+  }
+
+  .iconfont {
+    font-size: .5rem;
+  }
+}
