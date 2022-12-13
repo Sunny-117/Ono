@@ -1,9 +1,14 @@
+# 前端 ESMAScript 基础
+
+## 原则
+完整，深度，系统
+## 具体细节
 
 > basic fe
 API full 
 举个例子：https://developer.mozilla.org/zh-CN/docs/Web/JavaScript/Reference/Global_Objects/JSON/stringify
 axios -> axios.post header: x-www-form-urlencoded application/json text/ withCredential cookie 跨域
-官方文档
+官方文档，MDN
 
 ```js
 console.log(JSON.stringify({ x: 5, y: 6 }));
@@ -58,3 +63,12 @@ setTimeout(() => {
 // 思考：为什么WeakMap没有遍历，size， clear方法：不可预测
 
 ```
+
+# 原型
+
+```js
+Object 构造器 函数 -》 Function
+Function 构造器 函数 -》Function
+Function.__proto__===Function.prototype
+```
+
