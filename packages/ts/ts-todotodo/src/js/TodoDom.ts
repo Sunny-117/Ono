@@ -10,7 +10,7 @@ class TodoDom extends TodoTemplate {
     this.todoWrapper = todoWrapper;
   }
 
-  protected initList (todoData: ITodoData[]) {
+  protected initList(todoData: ITodoData[]) {
     if (todoData.length) {
       const oFrag: DocumentFragment = document.createDocumentFragment();
       todoData.map((todo: ITodoData) => {
@@ -21,17 +21,17 @@ class TodoDom extends TodoTemplate {
     }
   }
 
-  protected addItem (todo: ITodoData) {
+  protected addItem(todo: ITodoData) {
     const oItem: HTMLElement = createItem('div', 'todo-item', this.todoView(todo));
     this.todoWrapper.appendChild(oItem);
   }
 
-  protected removeItem (target: HTMLElement) {
+  protected removeItem(target: HTMLElement) {
     const oParentNode: HTMLElement = findParentNode(target, 'todo-item');
     oParentNode.remove();
   }
 
-  protected changeCompleted (target: HTMLElement, completed: boolean) {
+  protected changeCompleted(target: HTMLElement, completed: boolean) {
     const oParentNode: HTMLElement = findParentNode(target, 'todo-item');
     const oContent: HTMLElement = oParentNode.getElementsByTagName('span')[0];
 
